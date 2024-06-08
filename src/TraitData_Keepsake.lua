@@ -34,15 +34,15 @@ CustomRarityLevels = {
 			},
 			Rare =
 			{
-				DamageMultiplierMultiplier = 2.0,
+				DamageMultiplier = 2.0,
 			},
 			Epic =
 			{
-				DamageMultiplierMultiplier = 3.0,
+				DamageMultiplier = 3.0,
 			},
 			Heroic =
 			{
-				DamageMultiplierMultiplier = 4.0,
+				DamageMultiplier = 4.0,
 			}
 		},
 		Icon = "Keepsake_33",
@@ -53,7 +53,7 @@ CustomRarityLevels = {
 
 		OnSelfDamagedFunction = 
 		{
-			Name = "HeraRetaliate",
+			Name = "EscalatingKeepsake",
 			FunctionArgs = 
 			{
 				ProjectileName = "HeraDamageShareProjectile",
@@ -64,10 +64,6 @@ CustomRarityLevels = {
 				},
 				ReportValues = { ReportedMultiplier = "Multiplier"},
 			}
-		},
-		StatLines =
-		{
-			"RetaliateMultiplierStatDisplay1",
 		},
 
 		EquipVoiceLines =
