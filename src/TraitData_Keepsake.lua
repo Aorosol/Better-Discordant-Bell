@@ -1,5 +1,3 @@
-if not EscalatingKeepsake.Config.Enabled then return end
-
 game.TraitSetData.Keepsakes.EscalatingKeepsake = {
         InheritFrom = { "GiftTrait" },
 		RarityLevels =
