@@ -4,7 +4,7 @@ game.TraitData.EscalatingKeepsake = {
 		{
 			Common =
 			{
-				Multiplier = 10.0,
+				Multiplier = 1.0,
 			},
 			Rare =
 			{
