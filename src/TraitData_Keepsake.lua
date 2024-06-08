@@ -9,7 +9,7 @@ EscalatingKeepsake =
 		{
 			Common =
 			{
-				Multiplier = 1.0,
+				Multiplier = 10.0,
 			},
 			Rare =
 			{
