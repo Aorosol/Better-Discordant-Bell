@@ -58,8 +58,47 @@ CustomRarityLevels = {
 			{
 				ProjectileName = "ZeusRetaliateStrike",
 				Cooldown = 0.15,
+				ConsecutiveStrikeChance = 0.5,
+				MaxStrikes = { 
+					BaseValue = 2,
+					MinValue = 1,
+					IdenticalMultiplier = 
+					{
+						Value = -0.5,
+					},
+				},
+				ReportValues = 
+				{ 
+					ReportedMaxStrikes = "MaxStrikes",
+					ReportedStrikeChance = "ConsecutiveStrikeChance"
+				},
 			}
 		},
+		StatLines =
+		{
+			"BoltMultiCastStatDisplay",
+		},
+		ExtractValues = 
+		{
+			{
+				Key = "ReportedMaxStrikes",
+				ExtractAs = "MaxStrikes",
+			},
+			{
+				Key = "ReportedStrikeChance",
+				ExtractAs = "StrikeChance",
+				SkipAutoExtract = true,
+				Format = "Percent",
+			},
+			{
+				ExtractAs = "Damage",
+				External = true,
+				BaseType = "ProjectileBase",
+				BaseName = "ZeusRetaliateStrike",
+				BaseProperty = "Damage",
+				SkipAutoExtract = true,
+			},
+	
 		EquipVoiceLines =
 		{
 			{
@@ -81,4 +120,5 @@ CustomRarityLevels = {
 				Text = "SignoffEris",
 			},
 		},
-	}
+	},
+}
