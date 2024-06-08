@@ -30,19 +30,19 @@ CustomRarityLevels = {
 		{
 			Common =
 			{
-				DamageMultiplier = 1.0,
+				Multiplier = 1.0,
 			},
 			Rare =
 			{
-				DamageMultiplier = 2.0,
+				Multiplier = 2.0,
 			},
 			Epic =
 			{
-				DamageMultiplier = 3.0,
+				Multiplier = 3.0,
 			},
 			Heroic =
 			{
-				DamageMultiplier = 4.0,
+				Multiplier = 4.0,
 			}
 		},
 		Icon = "Keepsake_33",
@@ -53,19 +53,13 @@ CustomRarityLevels = {
 
 		OnSelfDamagedFunction = 
 		{
-			Name = "EscalatingKeepsake",
+			Name = "ZeusRetaliate",
 			FunctionArgs = 
 			{
-				ProjectileName = "HeraDamageShareProjectile",
+				ProjectileName = "ZeusRetaliateStrike",
 				Cooldown = 0.15,
-				Multiplier =
-				{
-					BaseValue = 5,
-				},
-				ReportValues = { ReportedMultiplier = "Multiplier"},
 			}
 		},
-
 		EquipVoiceLines =
 		{
 			{
