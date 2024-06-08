@@ -60,4 +60,4 @@ modutil.once_loaded.game(function()
 	loader.load(on_ready, on_reload)
 end)
 
-import 'Data/TraitData_Keepsake'
+	import 'TraitData_Keepsake.lua'

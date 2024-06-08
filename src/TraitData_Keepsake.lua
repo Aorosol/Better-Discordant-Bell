@@ -1,6 +1,6 @@
-if not ErisKeepsake.Config.Enabled then return end
+if not EscalatingKeepsake.Config.Enabled then return end
 
-TraitData.ErisKeepsake =
+TraitData.EscalatingKeepsake =
 
 EscalatingKeepsake = 
 	{
