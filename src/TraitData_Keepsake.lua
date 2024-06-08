@@ -51,36 +51,60 @@ CustomRarityLevels = {
 		CustomTrayNameWhileDead = "EscalatingKeepsake",
 		CustomTrayText = "EscalatingKeepsake_Tray",
 
-		AddOutgoingDamageModifiers =
+		BoltRetaliateBoon = 
+	{
+		Icon = "Boon_Zeus_33",
+		InheritFrom = { "BaseTrait", "AirBoon" },
+		God = "Zeus",
+		OnSelfDamagedFunction = 
 		{
-			UseTraitValue = "EscalatingKeepsakeValue",
-			IsMultiplier = true,
+			Name = "ZeusRetaliate",
+			FunctionArgs = 
+			{
+				ProjectileName = "ZeusRetaliateStrike",
+				Cooldown = 0.15,
+				ConsecutiveStrikeChance = 0.5,
+				MaxStrikes = { 
+					BaseValue = 2,
+					MinValue = 1,
+					IdenticalMultiplier = 
+					{
+						Value = -0.5,
+					},
+				},
+				ReportValues = 
+				{ 
+					ReportedMaxStrikes = "MaxStrikes",
+					ReportedStrikeChance = "ConsecutiveStrikeChance"
+				},
+			}
 		},
-		AddIncomingDamageModifiers = 
+		StatLines =
 		{
-		
-			UseTraitValue = "EscalatingKeepsakeValue",
-			IsMultiplier = true,
+			"BoltMultiCastStatDisplay",
 		},
-		EscalatingKeepsakeGrowthPerRoom = { BaseValue = 0.5, DecimalPlaces = 3 },
-		EscalatingKeepsakeValue = 1.0,
-
 		ExtractValues = 
 		{
 			{
-				Key = "EscalatingKeepsakeGrowthPerRoom",
-				ExtractAs = "IncreasePerRoom",
-				Format = "Percent",
-				DecimalPlaces = 1,
+				Key = "ReportedMaxStrikes",
+				ExtractAs = "MaxStrikes",
 			},
 			{
+				Key = "ReportedStrikeChance",
+				ExtractAs = "StrikeChance",
 				SkipAutoExtract = true,
-				Key = "EscalatingKeepsakeValue",
-				ExtractAs = "CurrentBonus",
-				Format = "PercentDelta",
-				DecimalPlaces = 1,
+				Format = "Percent",
 			},
-		},
+			{
+				ExtractAs = "Damage",
+				External = true,
+				BaseType = "ProjectileBase",
+				BaseName = "ZeusRetaliateStrike",
+				BaseProperty = "Damage",
+				SkipAutoExtract = true,
+			},
+		}
+	},
 		EquipVoiceLines =
 		{
 			{
