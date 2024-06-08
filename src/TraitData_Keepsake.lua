@@ -1,4 +1,4 @@
-game.TraitSetData.Keepsakes.EscalatingKeepsake = {
+game.TraitData.EscalatingKeepsake = {
         InheritFrom = { "GiftTrait" },
 		RarityLevels =
 		{
@@ -36,7 +36,7 @@ game.TraitSetData.Keepsakes.EscalatingKeepsake = {
 			UseTraitValue = "EscalatingKeepsakeValue",
 			IsMultiplier = true,
 		},
-		EscalatingKeepsakeGrowthPerRoom = { BaseValue = 0.005, DecimalPlaces = 3 },
+		EscalatingKeepsakeGrowthPerRoom = { BaseValue = 0.5, DecimalPlaces = 3 },
 		EscalatingKeepsakeValue = 1.0,
 
 		ExtractValues = 
