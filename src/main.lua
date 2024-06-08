@@ -43,6 +43,7 @@ local function on_ready()
 	if config.enabled == false then return end
 	
 	import 'ready.lua'
+	import 'TraitData_Keepsake.lua'
 end
 
 local function on_reload()
@@ -60,4 +61,4 @@ modutil.once_loaded.game(function()
 	loader.load(on_ready, on_reload)
 end)
 
-	import 'TraitData_Keepsake.lua'
+	

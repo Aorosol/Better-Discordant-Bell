@@ -7,7 +7,7 @@ namespace = "Aoro"
 name = "Discordant_Bell_but_better"
 versionNumber = "0.0.1"
 description = "Eris' Keepsake: Discordant Bell does revenge damage, scaling with rank."
-websiteUrl = "https://github.com/Aorosol/BetterDiscordantBell"
+websiteUrl = "https://github.com/Aorosol/Better-Discordant-Bell"
 containsNsfwContent = false
 
 [package.dependencies]
