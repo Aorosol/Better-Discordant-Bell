@@ -51,60 +51,30 @@ CustomRarityLevels = {
 		CustomTrayNameWhileDead = "EscalatingKeepsake",
 		CustomTrayText = "EscalatingKeepsake_Tray",
 
-		BoltRetaliateBoon = 
-	{
-		Icon = "Boon_Zeus_33",
-		InheritFrom = { "BaseTrait", "AirBoon" },
-		God = "Zeus",
 		OnSelfDamagedFunction = 
 		{
-			Name = "ZeusRetaliate",
+			Name = "ApolloRetaliate",
 			FunctionArgs = 
 			{
-				ProjectileName = "ZeusRetaliateStrike",
+				ProjectileName = "ApolloRetaliateStrike",
 				Cooldown = 0.15,
-				ConsecutiveStrikeChance = 0.5,
-				MaxStrikes = { 
-					BaseValue = 2,
-					MinValue = 1,
-					IdenticalMultiplier = 
+				DamageMultiplier =
+				{
+					BaseValue = 1,
+					MinMultiplier = 0.1,
+					IdenticalMultiplier =
 					{
 						Value = -0.5,
 					},
 				},
-				ReportValues = 
-				{ 
-					ReportedMaxStrikes = "MaxStrikes",
-					ReportedStrikeChance = "ConsecutiveStrikeChance"
-				},
+				ReportValues = { ReportedMultiplier = "DamageMultiplier"},
 			}
 		},
 		StatLines =
 		{
-			"BoltMultiCastStatDisplay",
+			"RevengeDamageStatDisplay1",
 		},
-		ExtractValues = 
-		{
-			{
-				Key = "ReportedMaxStrikes",
-				ExtractAs = "MaxStrikes",
-			},
-			{
-				Key = "ReportedStrikeChance",
-				ExtractAs = "StrikeChance",
-				SkipAutoExtract = true,
-				Format = "Percent",
-			},
-			{
-				ExtractAs = "Damage",
-				External = true,
-				BaseType = "ProjectileBase",
-				BaseName = "ZeusRetaliateStrike",
-				BaseProperty = "Damage",
-				SkipAutoExtract = true,
-			},
-		}
-	},
+
 		EquipVoiceLines =
 		{
 			{
