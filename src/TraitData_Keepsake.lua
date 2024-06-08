@@ -30,19 +30,19 @@ CustomRarityLevels = {
 		{
 			Common =
 			{
-				Multiplier = 1.0,
+				DamageMultiplier = 1.0,
 			},
 			Rare =
 			{
-				Multiplier = 2.0,
+				DamageMultiplierMultiplier = 2.0,
 			},
 			Epic =
 			{
-				Multiplier = 3.0,
+				DamageMultiplierMultiplier = 3.0,
 			},
 			Heroic =
 			{
-				Multiplier = 4.0,
+				DamageMultiplierMultiplier = 4.0,
 			}
 		},
 		Icon = "Keepsake_33",
@@ -53,26 +53,21 @@ CustomRarityLevels = {
 
 		OnSelfDamagedFunction = 
 		{
-			Name = "ApolloRetaliate",
+			Name = "HeraRetaliate",
 			FunctionArgs = 
 			{
-				ProjectileName = "ApolloRetaliateStrike",
+				ProjectileName = "HeraDamageShareProjectile",
 				Cooldown = 0.15,
-				DamageMultiplier =
+				Multiplier =
 				{
-					BaseValue = 1,
-					MinMultiplier = 0.1,
-					IdenticalMultiplier =
-					{
-						Value = -0.5,
-					},
+					BaseValue = 5,
 				},
-				ReportValues = { ReportedMultiplier = "DamageMultiplier"},
+				ReportValues = { ReportedMultiplier = "Multiplier"},
 			}
 		},
 		StatLines =
 		{
-			"RevengeDamageStatDisplay1",
+			"RetaliateMultiplierStatDisplay1",
 		},
 
 		EquipVoiceLines =
