@@ -1,7 +1,6 @@
 if not EscalatingKeepsake.Config.Enabled then return end
 
-game.TraitData.EscalatingKeepsake =
-    {
+game.TraitData.EscalatingKeepsake = {
         InheritFrom = { "GiftTrait" },
 		RarityLevels =
 		{
@@ -79,5 +78,4 @@ game.TraitData.EscalatingKeepsake =
 				Text = "SignoffEris",
 			},
 		},
-	},
-	
+	}
