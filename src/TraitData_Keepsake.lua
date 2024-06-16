@@ -115,11 +115,17 @@ game.TraitData.EscalatingKeepsake = {
 }
 
 -- This is the SJSON edit for the damage ~~ zannc
+local PlayerProjectilesFile = rom.path.combine(rom.paths.Content, 'Game/Text/en/PlayerProjectiles.sjson')
+
 function sjson_EditZeusDamage(data)
     for _, v in ipairs(data.Projectiles) do
         if v.Name == 'ZeusRetaliateStrike' then
-            v.Damage = 100 -- Change to whatever you want, but beware that it will alter the original boon
+            v.Damage = 300 -- Change to whatever you want, but beware that it will alter the original boon
             break
         end
     end
 end
+
+sjson.hook(PlayerProjectilesFile, function(data)
+    return sjson_EditZeusDamage(data)
+end)
