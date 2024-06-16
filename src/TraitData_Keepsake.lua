@@ -37,9 +37,9 @@ game.TraitData.EscalatingKeepsake = {
     InheritFrom = { "GiftTrait" },
     RarityLevels = {
         Common = { Multiplier = 1.0 },
-        Rare = { Multiplier = 2.0 },
-        Epic = { Multiplier = 3.0 },
-        Heroic = { Multiplier = 4.0 },
+        Rare = { Multiplier = 1.25 },
+        Epic = { Multiplier = 1.75 },
+        Heroic = { Multiplier = 2.0 },
     },
 
     OnSelfDamagedFunction = {
@@ -48,9 +48,9 @@ game.TraitData.EscalatingKeepsake = {
         {
             ProjectileName = "ZeusRetaliateStrike",
             Cooldown = 0.15,
-            ConsecutiveStrikeChance = 0.5,
+            ConsecutiveStrikeChance = 0.00015,
             MaxStrikes = {
-                BaseValue = 2,
+                BaseValue = 1,
                 MinValue = 1,
                 IdenticalMultiplier =
                 {
