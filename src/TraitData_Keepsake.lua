@@ -96,6 +96,7 @@ game.TraitData.EscalatingKeepsake = {
         },
     },
 
+    -- Moved this outside of ExtractValues, idk why it was there but it shouldn't be. ~~ zannc
     EquipVoiceLines =
     {
         {
