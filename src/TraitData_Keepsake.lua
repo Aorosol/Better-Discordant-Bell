@@ -1,3 +1,19 @@
+local textfile = rom.path.combine(rom.paths.Content, 'Game/Text/en/TraitText.en.sjson')
+
+local ids_to_descriptions = {
+	EscalatingKeepsake = "Upon taking Damage, deal some back.",
+	EscalatingKeepsake_Tray = "Upon taking Damage, deal some back.",
+
+    BoltRetaliate_CombatText = "{#CombatTextHighlightFormat}{$TraitData.BoltRetaliateBoon.Name}"
+}
+
+sjson.hook(textfile, function(sjsonData)
+	for _, v in ipairs(sjsonData.Texts) do
+		local description = ids_to_descriptions[v.Id]
+		if description then v.Description = description end
+	end
+end)
+
 game.TraitData.EscalatingKeepsake = {
     Name = "EscalatingKeepsake",
     Icon = "Keepsake_33",
@@ -37,9 +53,9 @@ game.TraitData.EscalatingKeepsake = {
     InheritFrom = { "GiftTrait" },
     RarityLevels = {
         Common = { Multiplier = 1.0 },
-        Rare = { Multiplier = 1.25 },
-        Epic = { Multiplier = 1.75 },
-        Heroic = { Multiplier = 2.0 },
+        Rare = { Multiplier = 2.0 },
+        Epic = { Multiplier = 4.0 },
+        Heroic = { Multiplier = 8.0 },
     },
 
     OnSelfDamagedFunction = {
@@ -47,8 +63,9 @@ game.TraitData.EscalatingKeepsake = {
         FunctionArgs =
         {
             ProjectileName = "ZeusRetaliateStrike",
+            DamageMultiplier = { BaseValue = 1.0 }, -- Added this, this is the multiplier of 100, it takes in the multiplier above ~~ zannc
             Cooldown = 0.15,
-            ConsecutiveStrikeChance = 0.00015,
+            ConsecutiveStrikeChance = 0.0015,
             MaxStrikes = {
                 BaseValue = 1,
                 MinValue = 1,
@@ -57,10 +74,11 @@ game.TraitData.EscalatingKeepsake = {
                     Value = -0.5,
                 },
             },
-            ReportValues =
-            {
+            ReportValues = {
                 ReportedMaxStrikes = "MaxStrikes",
-                ReportedStrikeChance = "ConsecutiveStrikeChance"
+                ReportedStrikeChance = "ConsecutiveStrikeChance",
+                RetaliateDamage =
+                "DamageMultiplier" -- Added this, its used as the key to know what the multiplier is ~~ zannc
             },
         }
     },
@@ -82,50 +100,51 @@ game.TraitData.EscalatingKeepsake = {
             Format = "Percent",
         },
         {
+            Key = "RetaliateDamage",   -- This is said key, just grabs the value ~~ zannc
             ExtractAs = "Damage",
-            External = true,
-            BaseType = "ProjectileBase",
+            Format = "MultiplyByBase", -- This is to make the gmae know to multiply the base value (100) by whatever ~~ zannc
+            BaseType = "Projectile",   -- Changed form ProjectileBase to Projectile, dunno the difference but it crashes otherewise ~~ zannc
             BaseName = "ZeusRetaliateStrike",
             BaseProperty = "Damage",
-            SkipAutoExtract = true,
+            -- Removed these two ~~ zannc
+            -- External = true,
+            -- SkipAutoExtract = true,
         },
+    },
 
-        EquipVoiceLines =
+    -- Moved this outside of ExtractValues, idk why it was there but it shouldn't be. ~~ zannc
+    EquipVoiceLines =
+    {
         {
+            PreLineWait = 0.3,
+            BreakIfPlayed = true,
+            SuccessiveChanceToPlay = 0.2,
+            Cooldowns =
             {
-                PreLineWait = 0.3,
-                BreakIfPlayed = true,
-                SuccessiveChanceToPlay = 0.2,
-                Cooldowns =
-                {
-                    { Name = "MelinoeAnyQuipSpeech" },
-                },
+                { Name = "MelinoeAnyQuipSpeech" },
+            },
 
-                { Cue = "/VO/Melinoe_3200", Text = "The Bell." },
-            },
-            [2] = GlobalVoiceLines.AwardSelectedVoiceLines,
+            { Cue = "/VO/Melinoe_3200", Text = "The Bell." },
         },
-        SignOffData =
+        [2] = GlobalVoiceLines.AwardSelectedVoiceLines,
+    },
+
+    SignOffData =
+    {
         {
-            {
-                Text = "SignoffEris",
-            },
+            Text = "SignoffEris",
         },
-    }
+    },
 }
 
 -- This is the SJSON edit for the damage ~~ zannc
-local PlayerProjectilesFile = rom.path.combine(rom.paths.Content, 'Game/Text/en/PlayerProjectiles.sjson')
+local PlayerProjectilesFile = rom.path.combine(rom.paths.Content, 'Game/Projectiles/PlayerProjectiles.sjson')
 
 function sjson_EditZeusDamage(data)
-    for _, v in ipairs(data.Projectiles) do
-        if v.Name == 'ZeusRetaliateStrike' then
-            v.Damage = 300 -- Change to whatever you want, but beware that it will alter the original boon
-            break
-        end
-    end
-end
-
-sjson.hook(PlayerProjectilesFile, function(data)
-    return sjson_EditZeusDamage(data)
-end)
+     for _, v in ipairs(data.Projectiles) do
+         if v.Name == 'ZeusRetaliateStrike' then
+             v.Damage = 100 -- Change to whatever you want, but beware that it will alter the original boon
+             break
+         end
+     end
+ end
