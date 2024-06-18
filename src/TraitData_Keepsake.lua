@@ -4,7 +4,8 @@ local ids_to_descriptions = {
 	EscalatingKeepsake = "Upon taking Damage, deal some back.",
 	EscalatingKeepsake_Tray = "Upon taking Damage, deal some back.",
 
-    BoltRetaliate_CombatText = "{#CombatTextHighlightFormat}{$TraitData.BoltRetaliateBoon.Name}"
+    BoltRetaliate_CombatText = "{#CombatTextHighlightFormat}{$TraitData.BoltRetaliateBoon.Name}",
+    BoltRetaliateBoon = "After you take damage, your foe is struck by lightning."
 }
 
 sjson.hook(textfile, function(sjsonData)
