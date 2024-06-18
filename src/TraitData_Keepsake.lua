@@ -55,8 +55,8 @@ game.TraitData.EscalatingKeepsake = {
     RarityLevels = {
         Common = { Multiplier = 1.0 },
         Rare = { Multiplier = 2.0 },
-        Epic = { Multiplier = 4.0 },
-        Heroic = { Multiplier = 8.0 },
+        Epic = { Multiplier = 3.0 },
+        Heroic = { Multiplier = 6.0 },
     },
 
     OnSelfDamagedFunction = {
