@@ -5,7 +5,7 @@ local ids_to_descriptions = {
 	EscalatingKeepsake_Tray = "Upon taking Damage, deal some back.",
 
     BoltRetaliate_CombatText = "{#CombatTextHighlightFormat}{$TraitData.BoltRetaliateBoon.Name}",
-    BoltRetaliateBoon = "After you take damage, your foe is struck by lightning."
+    BoltMultiCastStatDisplay = "{$TooltipData.ExtractData.Damage}"
 }
 
 sjson.hook(textfile, function(sjsonData)
