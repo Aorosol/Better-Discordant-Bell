@@ -4,7 +4,7 @@ Eris' Keepsake: Discordant Bell does revenge damage, scaling with rank.
 
 ## What does it do?
 
-Upon taking damage, deals back 25/50/75/100% of the damage back, also, empowers revenge boons by 20%
+Upon taking damage, deals back 50/75/100/150 to the enemy.
 
 ## Instalation
 
